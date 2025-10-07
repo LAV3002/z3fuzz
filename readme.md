@@ -6,11 +6,13 @@
 
 2.) git clone https://github.com/LAV3002/z3fuzz.git
 
-3.) git submodule init
+3.) cd z3fuzz
 
-4.) git submodule update
+4.) git submodule init
 
-5.) python3 build.py
+5.) git submodule update
+
+6.) python3 build.py
 
 ## How to run
 
