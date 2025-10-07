@@ -59,7 +59,7 @@ class Node:
         self.args = args
 
     def mutate(self, defsInfo):
-        mutationIdx = random.randint(1, 50)
+        mutationIdx = random.randint(1, 10)
 
         if mutationIdx == 1:
             if not self.getType() == NodeType.Op:
@@ -250,6 +250,9 @@ def fuzz(buf, _, max_size):
 
     out = []
 
+    if root == None:
+        return defaultFormula
+    
     root.serialize(out, defsInfo)
 
     out.reverse()
