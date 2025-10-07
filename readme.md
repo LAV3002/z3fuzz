@@ -16,4 +16,4 @@
 
 ## How to run
 
-1.) python3 run.py <num of process>
+1.) python3 run.py [num of process]
