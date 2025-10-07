@@ -1,2 +1,3 @@
 .vscode
 fuzzdir
+__pycache__
