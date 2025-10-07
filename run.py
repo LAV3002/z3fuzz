@@ -5,6 +5,13 @@ import shutil
 
 import subprocess
 
+def getFuzzerName(idx):
+    suffix = str(idx)
+    if len(suffix) == 1:
+        suffix = "0" + suffix
+    
+    return "fuzzer" + suffix
+
 
 def main() -> int:
     baseDir = pathlib.Path(os.getcwd())
@@ -36,7 +43,7 @@ def main() -> int:
     for key in envVariables:
         envPrefix += key + "=" + envVariables[key] + " "
 
-    runFuzzCmd = envPrefix + " ".join(fuzzArgs).format("-M", "masterP")
+    runFuzzCmd = envPrefix + " ".join(fuzzArgs).format("-M", "fuzzer01")
 
     secondarys = []
     fuzzArgs[1] = "-S"
@@ -51,7 +58,7 @@ def main() -> int:
         processNumber = int(sys.argv[1]) - 1
 
     for idx in range(processNumber):
-        fuzzArgs[2] = "S" + str(idx)
+        fuzzArgs[2] = getFuzzerName(idx + 2)
         secondarys.append(subprocess.Popen(fuzzArgs, env=env, stdout=subprocess.DEVNULL))
 
     os.system(runFuzzCmd)
