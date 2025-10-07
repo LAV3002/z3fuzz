@@ -37,7 +37,7 @@ def main() -> int:
     envVariables["AFL_SKIP_CPUFREQ"] = "1"
     envVariables["AFL_CUSTOM_MUTATOR_ONLY"] = "1"
 
-    fuzzArgs = [str(afl), "{}", "{}", "-m", "4096", "-t", "10000", "-i", str(samplesDir), '-o', 'syncdir/', str(z3), "-smt2", "@@"]
+    fuzzArgs = [str(afl), "{}", "{}", "-m", "4096", "-t", "10000", "-i", str(samplesDir), '-o', 'sync_dir/', str(z3), "-smt2", "@@"]
 
     envPrefix = "env "
     for key in envVariables:
